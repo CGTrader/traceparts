@@ -1,6 +1,7 @@
 require 'faraday'
 require 'json'
 require 'traceparts/catalog'
+require 'traceparts/product'
 
 module Traceparts
   class Client
@@ -21,6 +22,14 @@ module Traceparts
       response = JSON.parse(response.body)
 
       response['classificationList'].map { |catalog| Catalog.new(catalog, self) }
+    end
+
+    def products(catalog_id, category_path = nil)
+      response = get_request("#{WEB_SERVICE_PATH}/ProductsList", { 'ClassificationID' => catalog_id, 'Path' => category_path })
+
+      response = JSON.parse(response.body)
+
+      response['productList'].map { |product| Product.new(product, self) }
     end
 
     private

@@ -14,7 +14,7 @@ module Traceparts
     end
 
     def products
-      # TODO:
+      @client.products(id)
     end
   end
 end
