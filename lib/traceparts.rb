@@ -1,5 +1,6 @@
 require "traceparts/version"
 
-module Traceparts
-  # Your code goes here...
-end
+require 'traceparts/client'
+# module Traceparts
+#   # Your code goes here...
+# end
