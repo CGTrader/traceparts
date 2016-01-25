@@ -3,7 +3,7 @@ module Traceparts
     attr_reader :id, :title, :manufacturer_id, :manufacturer_name, :picture_url, :published, :updated,
                 :manufacturer_picture_url
 
-    def initialize(data, client)
+    def initialize(client, data)
       @client = client
 
       @id = data.fetch('partID')

@@ -2,7 +2,7 @@ module Traceparts
   class Catalog
     attr_reader :id, :title, :picture_url, :published, :updated, :type
 
-    def initialize(data, client)
+    def initialize(client, data)
       @client = client
 
       @id = data.fetch('classificationId')
@@ -15,6 +15,10 @@ module Traceparts
 
     def products
       @client.products(id)
+    end
+
+    def categories
+      @client.categories(id)
     end
   end
 end

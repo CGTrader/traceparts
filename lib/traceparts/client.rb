@@ -21,7 +21,7 @@ module Traceparts
 
       response = JSON.parse(response.body)
 
-      response['classificationList'].map { |catalog| Catalog.new(catalog, self) }
+      response['classificationList'].map { |catalog| Catalog.new(self, catalog) }
     end
 
     def products(catalog_id, category_path = nil)
@@ -29,7 +29,15 @@ module Traceparts
 
       response = JSON.parse(response.body)
 
-      response['productList'].map { |product| Product.new(product, self) }
+      response['productList'].map { |product| Product.new(self, product) }
+    end
+
+    def categories(catalog_id)
+      response = get_request("#{WEB_SERVICE_PATH}/CategoriesList", { 'ClassificationId' => catalog_id })
+
+      response = JSON.parse(response.body)
+
+      response['categorieList'].map { |category| Category.new(self, category) }
     end
 
     private
