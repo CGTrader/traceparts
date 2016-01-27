@@ -8,7 +8,7 @@ module Traceparts
       @path = data.fetch('path')
       @title = data.fetch('title')
       @path_caption = data.fetch('pathCaption')
-      @classification_id = data.fetch('pathCaption')
+      @classification_id = data.fetch('classificationId')
       @picture_url = data.fetch('pictureUrl')
       @level = data.fetch('level')
       @description = data.fetch('description')
