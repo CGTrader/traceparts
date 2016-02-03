@@ -6,6 +6,7 @@ require 'traceparts/category'
 require 'traceparts/part'
 require 'traceparts/part_details'
 require 'traceparts/cad_format'
+require 'traceparts/user'
 
 module Traceparts
   class Client
@@ -76,6 +77,32 @@ module Traceparts
 
     def part(classification_id, part_number, user_email)
       Part.new(self, classification_id, part_number, user_email)
+    end
+
+    def user(user_email)
+      User.new(self, user_email)
+    end
+
+    def user_exists?(user_email)
+      response = get_request('CheckLogin', {
+        'UserEmail' => user_email
+      })
+
+      json = JSON.parse(response.body)
+
+      json['registered'] == true
+    end
+
+    def register_user(user_email, company, country)
+      response = get_request('UserRegistration', {
+        'UserEmail' => user_email,
+        'company' => company,
+        'country' => country
+      })
+
+      json = JSON.parse(response.body)
+
+      json['registered'] == true
     end
 
     private
