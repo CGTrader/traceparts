@@ -7,3 +7,6 @@
 /pkg/
 /spec/reports/
 /tmp/
+/crawler/
+traceparts-0.1.0.gem
+.DS_Store

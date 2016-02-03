@@ -15,9 +15,5 @@ module Traceparts
       @updated = data.fetch('updated')
       @manufacturer_picture_url = data.fetch('manufacturerPictureUrl')
     end
-
-    def download
-      # TODO:
-    end
   end
 end
