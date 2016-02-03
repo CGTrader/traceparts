@@ -35,19 +35,24 @@ Or install it yourself as:
 
 ### Setup client
 
+```ruby
 ACCESS_TOKEN = 'YOUR_TRACEPARTS_ACCESS_TOKEN'
 
 client = Traceparts::Client.new(ACCESS_TOKEN)
+```
 
 ### Some test data
 
+```ruby
 id = 'PNEUMADYNE'
 part_number = 'A11-31-14'
 email = 'your@email.com'
 format_id = 11
+```
 
 ### Catalog related functionality
 
+```ruby
 catalogs = client.catalogs
 catalog = catalogs.first
 
@@ -59,22 +64,27 @@ category_product = category_products.first
 
 catalog_products = catalog.products
 catalog_product = catalog_products.first
+```
 
 ### PartNumber data related functionality
 
 #### Option 1 (suggested)
 
+```ruby
 part = client.part(id, part_number, email)
 
 details = part.details
 formats = part.available_formats
 download_link = part.download_archive_link(format_id)
+```
 
 #### Option 2
 
+```ruby
 details = client.part_details(id, part_number, email)
 formats = client.available_formats(id, part_number, email)
 download_link = client.download_archive_link(id, part_number, format_id, email)
+```
 
 ## Development
 
