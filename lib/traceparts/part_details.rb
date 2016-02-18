@@ -2,8 +2,7 @@ module Traceparts
   class PartDetails
     attr_reader :title, :description, :long_description, :big_picture, :manufacturer_id, :manufacturer_name,
                 :manufacturer_picture, :manufacturer_description, :manufacturer_emails, :manufacturer_websites,
-                :manufacturer_address
-
+                :manufacturer_address, :version
     def initialize(data)
       global_info = data.fetch('globalInfo')
       part_info = global_info.fetch('partInfo')
@@ -13,6 +12,7 @@ module Traceparts
       @description = part_info.fetch('description')
       @long_description = part_info.fetch('longDescription')
       @big_picture = part_info.fetch('partPictureUrl')
+      @version = part_info.fetch('version')
       @manufacturer_id = part_info.fetch('manufacturerID')
       @manufacturer_name = part_info.fetch('manufacturerName')
       @manufacturer_picture= part_info.fetch('manufacturerPictureUrl')
