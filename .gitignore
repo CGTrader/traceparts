@@ -8,5 +8,5 @@
 /spec/reports/
 /tmp/
 /crawler/
-traceparts-0.1.0.gem
+traceparts-*.gem
 .DS_Store
