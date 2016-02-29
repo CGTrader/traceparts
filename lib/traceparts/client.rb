@@ -93,11 +93,14 @@ module Traceparts
       json['registered'] == true
     end
 
-    def register_user(user_email, company, country)
+    def register_user(user_email, company, country, first_name, last_name, phone)
       response = get_request('UserRegistration', {
         'UserEmail' => user_email,
         'company' => company,
-        'country' => country
+        'country' => country,
+        'fname' => first_name,
+        'name' => last_name,
+        'phone' => phone
       })
 
       json = JSON.parse(response.body)

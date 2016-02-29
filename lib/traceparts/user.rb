@@ -1,21 +1,19 @@
 module Traceparts
   class User
-    attr_reader :email, :company, :country
+    attr_reader :email
 
     def initialize(client, email)
       @client = client
 
       @email = email
-      @company = nil
-      @coutry = nil
     end
 
     def exists?
       @client.user_exists?(email)
     end
 
-    def register(company, country)
-      @client.register_user(email, company, country)
+    def register(company, country, first_name = nil, last_name = nil, phone = nil)
+      @client.register_user(email, company, country, first_name, last_name, phone)
     end
   end
 end
