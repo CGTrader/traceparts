@@ -73,13 +73,13 @@ user = client.user(user_email)
 
 # Option 1 (suggested)
 user.exists? # true or false
-user.register(company, country) # true or false
+user.register(company, country, first_name, last_name, phone) # true or false
 
 user.email
 
 # Option 2
 client.user_exists?(user_email) # true or false
-client.register_user(user_email, company, country) # true or false
+client.register_user(user_email, company, country, first_name, last_name, phone) # true or false
 ```
 
 ### PartNumber data related functionality
