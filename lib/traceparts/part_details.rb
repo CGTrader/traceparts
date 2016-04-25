@@ -17,10 +17,10 @@ module Traceparts
       @manufacturer_name = part_info.fetch('manufacturerName')
       @manufacturer_picture= part_info.fetch('manufacturerPictureUrl')
 
-      @manufacturer_description = manufacturer_info.fetch('description')
-      @manufacturer_emails = manufacturer_info.fetch('emails')
-      @manufacturer_websites = manufacturer_info.fetch('webSites')
-      @manufacturer_address = manufacturer_info.fetch('address')
+      @manufacturer_description = manufacturer_info.key?('description') ? manufacturer_info.fetch('description') : ''
+      @manufacturer_emails = manufacturer_info.key?('emails') ? manufacturer_info.fetch('emails') : ''
+      @manufacturer_websites = manufacturer_info.key?('webSites') ? manufacturer_info.fetch('webSites') : ''
+      @manufacturer_address = manufacturer_info.key?('address') ? manufacturer_info.fetch('address') : ''
     end
   end
 end
