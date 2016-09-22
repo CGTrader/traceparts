@@ -72,7 +72,7 @@ module Traceparts
 
       json = JSON.parse(response.body)
 
-      json[1][1][1]
+      json[1][0][1]
     end
 
     def part(classification_id, part_number, user_email)
