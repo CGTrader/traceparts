@@ -10,7 +10,7 @@ require 'traceparts/user'
 
 module Traceparts
   class Client
-    API_BASE = 'http://ws.tracepartsonline.net'
+    API_BASE = 'https://ws.tracepartsonline.net'
     WEB_SERVICE_PATH = '/tpowebservices'
 
     def initialize(api_key)
