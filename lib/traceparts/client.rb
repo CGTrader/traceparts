@@ -72,6 +72,8 @@ module Traceparts
 
       json = JSON.parse(response.body)
 
+      return if json.is_a?(Hash)
+
       json[1][0][1]
     end
 
